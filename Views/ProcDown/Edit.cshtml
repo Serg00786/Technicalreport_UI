@@ -1,0 +1,45 @@
+﻿@model TechnicalReport_Data.Models.FE.ProcessDowntimes
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h4>Отредактируйте запись</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Оборудование</label> <br />
+                <select name="Eq_id" asp-for="Eq_id" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfEquipment,"ID","SHORT_NAME"))"></select>
+            </div>
+            <div class="form-group">
+                <label>Причина технологического останова</label> <br />
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Дата начала</label> <br />
+                <input asp-for="from_dt" class="form-control" />
+                <span asp-validation-for="from_dt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Дата окончания</label> <br />
+                <input asp-for="to_dt" class="form-control" />
+                <span asp-validation-for="to_dt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

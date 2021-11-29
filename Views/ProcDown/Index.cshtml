@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TechnicalReport_Data.Models.FE.ProcessDowntimes>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Учёт технологических остановов</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Machine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.from_dt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.to_dt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Machine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.from_dt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.to_dt)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { item.id }) |
+                    @Html.ActionLink("Details", "Details", new { item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
